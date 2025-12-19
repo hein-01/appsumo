@@ -1,4 +1,6 @@
 import { Header } from '@/components/Header';
+import { DevEssentialsSection } from '@/components/DevEssentialsSection';
+import { AIForEveryoneSection } from '@/components/AIForEveryoneSection';
 import { NewsSection } from '@/components/NewsSection';
 import { MoneyMakingSection } from '@/components/MoneyMakingSection';
 import { ToolsSection } from '@/components/ToolsSection';
@@ -12,6 +14,8 @@ const Index = () => {
       <Header />
       
       <main className="flex-1">
+        <DevEssentialsSection />
+        <AIForEveryoneSection />
         <NewsSection />
         <MoneyMakingSection />
         <ToolsSection />
