@@ -3,7 +3,6 @@ import { DevEssentialsSection } from '@/components/DevEssentialsSection';
 import { AIForEveryoneSection } from '@/components/AIForEveryoneSection';
 import { NewsSection } from '@/components/NewsSection';
 import { MoneyMakingSection } from '@/components/MoneyMakingSection';
-import { ToolsSection } from '@/components/ToolsSection';
 import { RankingsSection } from '@/components/RankingsSection';
 import { CategoriesSection } from '@/components/CategoriesSection';
 import { Footer } from '@/components/Footer';
@@ -18,7 +17,6 @@ const Index = () => {
         <AIForEveryoneSection />
         <NewsSection />
         <MoneyMakingSection />
-        <ToolsSection />
         <RankingsSection />
         <CategoriesSection />
       </main>

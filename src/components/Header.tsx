@@ -45,7 +45,7 @@ export function Header() {
         <a href="/" className="flex items-center gap-2">
           <div className="flex items-center">
             <span className="text-2xl font-bold gradient-text">AI</span>
-            <span className="text-2xl font-bold text-foreground">Base</span>
+            <span className="text-2xl font-bold text-foreground">Sumo</span>
           </div>
         </a>
 
