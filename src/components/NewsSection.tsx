@@ -27,21 +27,6 @@ const featuredNews = [
   },
 ];
 
-const newsHeadlines = [
-  'British Actor Votes Against Digital Scanning, Opposes Abuse of AI Technology',
-  'Swedish startup Lovable raises $330 million, valuation surges to $6.6 billion',
-  'Google Gemini App Launches New AI Detection Feature for Video Generation',
-  'OpenAI releases GPT-5.2-Codex: The strongest intelligent agent programming model',
-  'Meta announces breakthrough in multimodal AI with new Llama 4 architecture',
-];
-
-const mostPopular = [
-  { rank: 1, title: 'Ant Group Open Sources LLaDA2.0, the Industry\'s First 100B-Parameter Diffusion Model' },
-  { rank: 2, title: 'Domestic Large Models Compete for a Spot in the Hong Kong Stock Market' },
-  { rank: 3, title: 'Skywork APP 5.0 Launch: One Sentence AI Instantly Generates Mind Map + PPT' },
-  { rank: 4, title: 'Harness Successfully Raises $240 Million to Advance AI Software Delivery' },
-  { rank: 5, title: 'New GPT-5 Model Shows Unprecedented Reasoning Capabilities in Benchmarks' },
-];
 
 export function NewsSection() {
   return (
@@ -54,74 +39,29 @@ export function NewsSection() {
           </a>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-6">
-          {/* Main content area */}
-          <div className="lg:col-span-3">
-            {/* Featured cards */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              {featuredNews.map((news, index) => (
-                <a
-                  key={news.id}
-                  href="#"
-                  className="group card-hover block rounded-lg overflow-hidden bg-card border border-border shadow-card"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={news.image}
-                      alt={news.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <span className="text-xs text-primary font-medium">{news.category}</span>
-                    <h3 className="text-sm font-medium text-foreground mt-1 line-clamp-2 group-hover:text-primary transition-colors">
-                      {news.title}
-                    </h3>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* Text headlines */}
-            <div className="space-y-3">
-              {newsHeadlines.map((headline, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="block py-2 px-3 rounded-lg hover:bg-muted/50 transition-colors group"
-                >
-                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                    {headline}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Most Popular sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-muted/30 rounded-xl p-4 border border-border">
-              <h3 className="font-bold text-foreground mb-4">Most Popular</h3>
-              <div className="space-y-4">
-                {mostPopular.map((item) => (
-                  <a key={item.rank} href="#" className="flex gap-3 group">
-                    <span className={`ranking-badge flex-shrink-0 ${
-                      item.rank === 1 ? 'ranking-badge-1' :
-                      item.rank === 2 ? 'ranking-badge-2' :
-                      item.rank === 3 ? 'ranking-badge-3' :
-                      'ranking-badge-default'
-                    }`}>
-                      {item.rank}
-                    </span>
-                    <span className="text-sm text-foreground/80 group-hover:text-primary transition-colors line-clamp-2">
-                      {item.title}
-                    </span>
-                  </a>
-                ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {featuredNews.map((news, index) => (
+            <a
+              key={news.id}
+              href="#"
+              className="group card-hover block rounded-lg overflow-hidden bg-card border border-border shadow-card"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={news.image}
+                  alt={news.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-            </div>
-          </div>
+              <div className="p-3">
+                <span className="text-xs text-primary font-medium">{news.category}</span>
+                <h3 className="text-sm font-medium text-foreground mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                  {news.title}
+                </h3>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
