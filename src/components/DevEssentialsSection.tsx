@@ -84,7 +84,7 @@ export function DevEssentialsSection() {
                         </a>
                       )}
                     </div>
-                    {tool.isPaid && (
+                    {tool.isActive && (
                       <span className="text-[10px] sm:text-xs px-1 sm:px-1.5 py-0.5 rounded border-0 text-white font-medium bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-[length:200%_100%] animate-[gradient-shift_3s_ease-in-out_infinite] w-fit mb-2">
                         Active
                       </span>
