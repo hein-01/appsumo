@@ -71,27 +71,32 @@ export function AdminTools() {
     t.description.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!editingTool?.name || !editingTool?.slug) {
       toast({ title: 'Name and slug are required', variant: 'destructive' });
       return;
     }
     
-    if (editingTool.id && tools.some(t => t.id === editingTool.id)) {
-      updateTool(editingTool.id, editingTool);
-      toast({ title: 'Tool updated' });
-    } else {
-      const newTool: Tool = {
-        ...emptyTool,
-        ...editingTool,
-        id: editingTool.id || `tool-${Date.now()}`,
-        categoryIds: editingTool.categoryIds || [],
-      } as Tool;
-      addTool(newTool);
-      toast({ title: 'Tool added' });
+    try {
+      if (editingTool.id && tools.some(t => t.id === editingTool.id)) {
+        await updateTool(editingTool.id, editingTool);
+        toast({ title: 'Tool updated successfully' });
+      } else {
+        const newTool: Tool = {
+          ...emptyTool,
+          ...editingTool,
+          id: editingTool.id || `tool-${Date.now()}`,
+          categoryIds: editingTool.categoryIds || [],
+        } as Tool;
+        await addTool(newTool);
+        toast({ title: 'Tool added successfully' });
+      }
+      setIsDialogOpen(false);
+      setEditingTool(null);
+    } catch (error: any) {
+      console.error('Error saving tool:', error);
+      toast({ title: 'Failed to save tool', description: error.message, variant: 'destructive' });
     }
-    setIsDialogOpen(false);
-    setEditingTool(null);
   };
 
   const handleDelete = (id: string) => {
