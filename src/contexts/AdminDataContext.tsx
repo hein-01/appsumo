@@ -363,7 +363,11 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
     if (updates.categoryIds !== undefined) dbUpdates.category_ids = updates.categoryIds;
 
     const { error } = await supabase.from('tools').update(dbUpdates).eq('id', id);
-    if (!error) await fetchData();
+    if (error) {
+      console.error('Error updating tool:', error);
+      throw error;
+    }
+    await fetchData();
   };
 
   const deleteTool = async (id: string) => {
