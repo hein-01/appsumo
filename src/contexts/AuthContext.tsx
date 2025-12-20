@@ -7,6 +7,7 @@ interface AuthContextType {
   session: Session | null;
   isAdmin: boolean;
   isLoading: boolean;
+  isCheckingAdmin: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -118,6 +119,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       session,
       isAdmin,
       isLoading,
+      isCheckingAdmin,
       signIn,
       signUp,
       signOut,
