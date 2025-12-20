@@ -7,10 +7,11 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children, requireAdmin = true }: ProtectedRouteProps) {
-  const { user, isAdmin, isLoading } = useAuth();
+  const { user, isAdmin, isLoading, isCheckingAdmin } = useAuth();
   const location = useLocation();
 
-  if (isLoading) {
+  // Show loading while auth or admin status is being determined
+  if (isLoading || isCheckingAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
